@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+}
+
+.workflow-builder {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.workflow-canvas {
+  flex: 1;
+  position: relative;
+}
+
+.component-library {
+  width: 300px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+
+.configuration-panel {
+  width: 350px;
+  background: white;
+  border-left: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.react-flow__node-user-query,
+.react-flow__node-knowledge-base,
+.react-flow__node-llm-engine,
+.react-flow__node-output {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #1f2937;
+  background: white;
+  min-width: 150px;
+}
+
+.react-flow__node-user-query {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.react-flow__node-knowledge-base {
+  border-color: #10b981;
+  background: #ecfdf5;
+}
+
+.react-flow__node-llm-engine {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.react-flow__node-output {
+  border-color: #8b5cf6;
+  background: #f5f3ff;
+}
+
+.component-item {
+  padding: 12px;
+  margin-bottom: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: grab;
+  background: white;
+  transition: all 0.2s;
+}
+
+.component-item:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.component-item:active {
+  cursor: grabbing;
+}
