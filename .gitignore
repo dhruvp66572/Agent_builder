@@ -63,8 +63,10 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# Python lib directories (but not frontend/src/lib)
+/lib/
 lib64/
+backend/lib/
 parts/
 sdist/
 var/
@@ -255,9 +257,10 @@ frontend/.env
 *.sqlite
 *.sqlite3
 
-# PostgreSQL
-*.sql
+# PostgreSQL data files (but not init scripts)
 *.dump
+# Exclude init scripts from ignore
+!init-db.sql
 
 # ChromaDB
 chroma_db/

@@ -463,12 +463,71 @@ export REACT_APP_DEBUG=true
 npm start
 ```
 
+## 🚀 Deployment
+
+### Quick Deploy to Digital Ocean
+
+Deploy Agent Builder to Digital Ocean with our automated deployment pipeline:
+
+#### Prerequisites
+- Digital Ocean account with a Droplet (Ubuntu 20.04/22.04)
+- Domain name (recommended for SSL)
+- API keys (OpenAI, Google AI, SerpAPI)
+
+#### 1. Automated Setup
+```bash
+# On your Digital Ocean droplet
+wget https://raw.githubusercontent.com/dhruvp66572/Agent_builder/main/deploy/setup-digitalocean.sh
+chmod +x setup-digitalocean.sh
+sudo ./setup-digitalocean.sh
+```
+
+#### 2. Configure Environment
+```bash
+cd /opt/agent-builder
+sudo nano .env  # Add your API keys and configuration
+```
+
+#### 3. Deploy
+```bash
+sudo docker-compose up -d
+```
+
+### GitHub Actions CI/CD
+
+Automatic deployment with GitHub Actions:
+
+1. **Fork this repository**
+2. **Configure secrets** in GitHub repository settings:
+   - `DOCKER_USERNAME` - Docker Hub username
+   - `DOCKER_PASSWORD` - Docker Hub access token
+   - `DIGITALOCEAN_ACCESS_TOKEN` - DO API token
+   - `DIGITALOCEAN_SSH_PRIVATE_KEY` - SSH private key
+   - `DIGITALOCEAN_SERVER_IP` - Your droplet IP
+
+3. **Push to main branch** - Automatic deployment triggers!
+
+### Docker Deployment
+
+Local Docker deployment:
+
+```bash
+# Production
+docker-compose up -d
+
+# Development
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+```
+
+📖 **Full Deployment Guide**: [deploy/DEPLOYMENT.md](deploy/DEPLOYMENT.md)
+🔐 **Secrets Setup Guide**: [deploy/SECRETS.md](deploy/SECRETS.md)
+
 ## 📚 Additional Resources
 
 - [Development Guide](DEVELOPMENT.md) - Detailed development information
 - [API Documentation](http://localhost:8000/docs) - Interactive API docs
-- [Component Guide](docs/components.md) - Component development guide
-- [Deployment Guide](docs/deployment.md) - Production deployment guide
+- [Deployment Guide](deploy/DEPLOYMENT.md) - Production deployment guide
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute
 
 ## 🤝 Contributing
 
